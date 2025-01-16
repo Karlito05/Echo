@@ -1,0 +1,755 @@
+meta:
+  engine: 4.1.0
+units:
+  u: U # Ensure we are using 19.05!
+
+  stabilizer_width: 7
+  stabilizer_height: 14
+  stabilizer_offset: -1 # This means south stabs, use `orient` to rotate them for north facing scenarios
+  stabilizer_spacing_2u: u / 2 + stabilizer_width / 2 + ((23.8 / 2) - (14 / 2) - (stabilizer_width / 2)) # The complex formula has two magic numbers. 14 is the size of a switch cutout for a plate. 23.8 is the distance between each stabilizer on a 2-2.75u stabilizer, as specified by Cherry
+  stabilizer_spacing_3u: u * ((3 - 1) / 2)
+
+points:
+  zones:
+    alphanumeric:
+      anchor:
+        shift: [70, -185] # fix placement
+      columns:
+        first:
+          rows:
+            skipped:
+              skip: true
+            a:
+              column_net: E6
+              row_net: D1
+            q:
+              column_net: E6
+              row_net: D0
+            one:
+              column_net: E6
+              row_net: D4
+
+        second:
+          rows:
+            z:
+              column_net: B4
+              row_net: D2
+            s:
+              column_net: B4
+              row_net: D1
+            w:
+              column_net: B4
+              row_net: D0
+            two:
+              column_net: B4
+              row_net: D4
+
+        third:
+          rows:
+            x:
+              column_net: B5
+              row_net: D2
+            d:
+              column_net: B5
+              row_net: D1
+            e:
+              column_net: B5
+              row_net: D0
+            three:
+              column_net: B5
+              row_net: D4
+
+        fourth:
+          rows:
+            c:
+              column_net: B7
+              row_net: D2
+            f:
+              column_net: B7
+              row_net: D1
+            r:
+              column_net: B7
+              row_net: D0
+            four:
+              column_net: B7
+              row_net: D4
+
+        fifth:
+          rows:
+            v:
+              column_net: D5
+              row_net: D2
+            g:
+              column_net: D5
+              row_net: D1
+            t:
+              column_net: D5
+              row_net: D0
+            five:
+              column_net: D5
+              row_net: D4
+
+        sixth:
+          rows:
+            b:
+              column_net: C7
+              row_net: D2
+            h:
+              column_net: C7
+              row_net: D1
+            y:
+              column_net: C7
+              row_net: D0
+            six:
+              column_net: C7
+              row_net: D4
+
+        seventh:
+          rows:
+            n:
+              column_net: F1
+              row_net: D2
+            j:
+              column_net: F1
+              row_net: D1
+            u:
+              column_net: F1
+              row_net: D0
+            seven:
+              column_net: F1
+              row_net: D4
+
+        eight:
+          rows:
+            m:
+              column_net: F0
+              row_net: D2
+            k:
+              column_net: F0
+              row_net: D1
+            i:
+              column_net: F0
+              row_net: D0
+            eight:
+              column_net: F0
+              row_net: D4
+
+        ninth:
+          rows:
+            comma:
+              column_net: B6
+              row_net: D2
+            l:
+              column_net: B6
+              row_net: D1
+            o:
+              column_net: B6
+              row_net: D0
+            nine:
+              column_net: B6
+              row_net: D4
+
+        tenth:
+          rows:
+            dot:
+              column_net: B2
+              row_net: D2
+            semicolon:
+              column_net: B2
+              row_net: D1
+            p:
+              column_net: B2
+              row_net: D0
+            zero:
+              column_net: B2
+              row_net: D4
+
+        eleventh:
+          rows:
+            questionMark:
+              column_net: B3
+              row_net: D2
+            quotes:
+              column_net: B3
+              row_net: D1
+            openCurlyBrace:
+              column_net: B3
+              row_net: D0
+            dash:
+              column_net: B3
+              row_net: D4
+
+        twelfth:
+          rows:
+            skipped1:
+              skip: true
+            skipped2:
+              skip: true
+            closedCurlyBrace:
+              column_net: B1
+              row_net: D0
+            equals:
+              column_net: B1
+              row_net: D4
+
+    modifierKeysL1:
+      anchor:
+        ref: alphanumeric_first_skipped
+        shift: [-1U, 0]
+      columns:
+        first:
+          rows:
+            lShift:
+              width: 2.95u
+              bind: [1u, 0]
+              column_net: D7
+              row_net: D2
+              tags: 3u_stabilizers
+
+    modifierKeysL2:
+      anchor:
+        ref: alphanumeric_first_a
+        shift: [-1.5U, 0]
+      columns:
+        first:
+          rows:
+            capsLock:
+              width: 1.95u
+              bind: [0.5u, 1u]
+              column_net: B0
+              row_net: D1
+              tags: 2u_stabilizers
+            tab:
+              width: 1.95u
+              bind: [0.5u, 1u]
+              column_net: B0
+              row_net: D0
+              tags: 2u_stabilizers
+
+    modifierKeysL3:
+      anchor:
+        ref: alphanumeric_first_one
+        shift: [-2U, 0]
+      columns:
+        first:
+          rows:
+            esc:
+              column_net: B0
+              row_net: D4
+        second:
+          rows:
+            tilde:
+              column_net: D7
+              row_net: D4
+
+    modifierKeysR1:
+      anchor:
+        ref: alphanumeric_twelfth_skipped1
+        shift: [1U, 0]
+      columns:
+        first:
+          rows:
+            rShift:
+              width: 2.95u
+              bind: [3u, 0]
+              column_net: F7
+              row_net: D2
+              tags: 3u_stabilizers
+            enter:
+              width: 2.95u
+              bind: [3u, 0]
+              column_net: F7
+              row_net: D1
+              tags: 3u_stabilizers
+
+    modifierKeysR2:
+      anchor:
+        ref: alphanumeric_twelfth_closedCurlyBrace
+        shift: [1.5U, 0]
+      columns:
+        first:
+          rows:
+            pipe:
+              width: 1.95u
+              bind: [3u, 0]
+              column_net: F7
+              row_net: D0
+              tags: 2u_stabilizers
+            backspace:
+              width: 1.95u
+              bind: [3u, 0]
+              column_net: F7
+              row_net: D4
+              tags: 2u_stabilizers
+
+    bottomRow:
+      anchor:
+        ref: alphanumeric_first_skipped
+        shift: [0, -1U]
+      columns:
+        first:
+          rows:
+            ctrlL:
+              shift: [-1.5U, 0]
+              width: 1.95u
+              bind: [0.5u, 0, 0, 0.5u]
+              column_net: B0
+              row_net: D3
+              tags: 2u_stabilizers
+        second:
+          rows:
+            windowsL:
+              shift: [-1U, 0]
+              column_net: E6
+              row_net: D3
+              bind: [0, 1u, 0, 1u]
+        third:
+          rows:
+            alt:
+              shift: [-0.5U, 0]
+              width: 1.95u
+              column_net: B5
+              row_net: D3
+              tags: 2u_stabilizers
+        fourth:
+          rows:
+            spaceL:
+              shift: [1U, 0]
+              width: 2.95u
+              bind: [3u, 0]
+              column_net: D5
+              row_net: D3
+              tags: 3u_stabilizers
+        fifth:
+          rows:
+            spaceR:
+              shift: [3U, 0]
+              width: 2.95u
+              bind: [3u, 0]
+              column_net: F0
+              row_net: D3
+              tags: 3u_stabilizers
+        sixth:
+          rows:
+            altGr:
+              shift: [4.5U, 0]
+              width: 1.95u
+              column_net: B2
+              row_net: D3
+              tags: 2u_stabilizers
+        seventh:
+          rows:
+            windowsR:
+              shift: [5U, 0]
+              column_net: B1
+              row_net: D3
+        ninth:
+          rows:
+            ctrlR:
+              shift: [5.5U, 0]
+              width: 1.95u
+              bind: [3u, 0]
+              column_net: F7
+              row_net: D3
+              tags: 2u_stabilizers
+
+    fKeys:
+      anchor:
+        ref: alphanumeric_first_one
+        shift: [-2U, 1.5u]
+      columns:
+        first:
+          rows:
+            skipped:
+              skip: true
+        second:
+          rows:
+            f1:
+              shift: [1U, 0]
+              column_net: E6
+              row_net: C6
+        third:
+          rows:
+            f2:
+              shift: [1U, 0]
+              column_net: B4
+              row_net: C6
+        fourth:
+          rows:
+            f3:
+              shift: [1U, 0]
+              column_net: B5
+              row_net: C6
+        fifth:
+          rows:
+            f4:
+              shift: [1U, 0]
+              column_net: B7
+              row_net: C6
+        sixth:
+          rows:
+            f5:
+              shift: [2U, 0]
+              column_net: C7
+              row_net: C6
+        seventh:
+          rows:
+            f6:
+              shift: [2U, 0]
+              column_net: F1
+              row_net: C6
+        eighth:
+          rows:
+            f7:
+              shift: [2U, 0]
+              column_net: F0
+              row_net: C6
+        ninth:
+          rows:
+            f8:
+              shift: [2U, 0]
+              column_net: B6
+              row_net: C6
+        tenth:
+          rows:
+            f9:
+              shift: [3U, 0]
+              column_net: B2
+              row_net: C6
+        eleventh:
+          rows:
+            f10:
+              shift: [3U, 0]
+              column_net: B3
+              row_net: C6
+        twelfth:
+          rows:
+            f11:
+              shift: [3U, 0]
+              column_net: B1
+              row_net: C6
+        thirteenth:
+          rows:
+            f12:
+              shift: [3U, 0]
+              column_net: F7
+              row_net: C6
+        fourteenth:
+          rows:
+            prntSc:
+              shift: [3.5U, 0]
+              column_net: F6
+              row_net: C6
+        fifteenth:
+          rows:
+            scrLk:
+              shift: [3.5U, 0]
+              column_net: F5
+              row_net: C6
+        sixteenth:
+          rows:
+            pause:
+              shift: [3.5U, 0]
+              bind: [0, 0, 2u, 18.5u]
+              column_net: F4
+              row_net: C6
+
+    arrowKeySection:
+      anchor:
+        ref: alphanumeric_twelfth_skipped1
+        shift: [3.5U, -1U]
+      columns:
+        first:
+          rows:
+            left:
+              column_net: F6
+              row_net: D3
+            skipped1:
+              skip: true
+            skipped2:
+              skip: true
+            delete:
+              column_net: F6
+              row_net: D0
+            insert:
+              column_net: F6
+              row_net: D4
+        second:
+          rows:
+            down:
+              column_net: F5
+              row_net: D3
+            up:
+              column_net: F5
+              row_net: D2
+            skipped:
+              skip: true
+            end:
+              column_net: F5
+              row_net: D0
+            home:
+              column_net: F5
+              row_net: D4
+        third:
+          rows:
+            right:
+              bind: [5.5u, 0, 0, 0]
+              column_net: F4
+              row_net: D3
+            skipped1:
+              skip: true
+            skipped2:
+              skip: true
+            pageDown:
+              column_net: F4
+              row_net: D0
+            pageUp:
+              column_net: F4
+              row_net: D4
+
+outlines:
+  2u_stabilizer: # This creates the stabilizer, you just need to use its name in a `where` clause of another outline
+    - operation: stack
+      where: 2u_stabilizers # Set this tag on the keys you want
+      what: rectangle
+      size: [stabilizer_width, stabilizer_height]
+      adjust:
+        shift: [stabilizer_spacing_2u, stabilizer_offset]
+    - operation: stack
+      where: 2u_stabilizers
+      what: rectangle
+      size: [stabilizer_width, stabilizer_height]
+      adjust:
+        shift: [-stabilizer_spacing_2u, stabilizer_offset]
+
+  3u_stabilizer: # This creates the stabilizer, you just need to use its name in a `where` clause of another outline
+    - operation: stack
+      where: 3u_stabilizers # Set this tag on the keys you want
+      what: rectangle
+      size: [stabilizer_width, stabilizer_height]
+      adjust:
+        shift: [stabilizer_spacing_3u, stabilizer_offset]
+    - operation: stack
+      where: 3u_stabilizers
+      what: rectangle
+      size: [stabilizer_width, stabilizer_height]
+      adjust:
+        shift: [-stabilizer_spacing_3u, stabilizer_offset]
+
+  _raw:
+    - what: rectangle
+      where: true
+      bound: true
+      size: 14
+
+  elite_c:
+    - what: rectangle
+      where: fKeys_second_f1
+      adjust:
+        shift: [-62, 14]
+      size: [100, 50]
+
+  mounting:
+    - what: circle
+      radius: 1.5
+      where:
+        ref: arrowKeySection_first_left
+        shift: [-0.75u, 0]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: fKeys_second_f1
+        shift: [0, -0.75u]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: alphanumeric_second_z
+        shift: [-0.60u, 0]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: alphanumeric_eleventh_questionMark
+        shift: [0.6u, 0]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: arrowKeySection_first_insert
+        shift: [-0.75u, 0.75u]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: fKeys_eighth_f7
+        shift: [-0.5u, -0.75u]
+    - what: circle
+      radius: 1.5
+      where:
+        ref: bottomRow_fourth_spaceL
+        shift: [1.5u, 0]
+
+  mounting_spacers:
+    - what: circle
+      radius: 2.5
+      where:
+        ref: arrowKeySection_first_left
+        shift: [-0.75u, 0]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: fKeys_second_f1
+        shift: [0, -0.75u]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: alphanumeric_second_z
+        shift: [-0.60u, 0]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: alphanumeric_eleventh_questionMark
+        shift: [0.6u, 0]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: arrowKeySection_first_insert
+        shift: [-0.75u, 0.75u]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: fKeys_eighth_f7
+        shift: [-0.5u, -0.75u]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: bottomRow_fourth_spaceL
+        shift: [1.5u, 0]
+
+  spacers:
+    - what: circle
+      radius: 2.5
+      where:
+        ref: bottomRow_first_ctrlL
+        shift: [-1u + 2, -0.5u + 2]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: arrowKeySection_third_right
+        shift: [0.5u - 2, -0.5u + 2]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: fKeys_sixteenth_pause
+        shift: [0.5u - 2, 0.5u - 2]
+    - what: circle
+      radius: 2.5
+      where:
+        ref: fKeys_second_f1
+        shift: [-2.5u + 2, 0.5u - 2]
+  panel:
+    - what: outline
+      name: _raw
+      expand: 5
+
+  panel_with_mounting_holes:
+    - what: outline
+      name: _raw
+      expand: 5
+    - what: outline
+      name: mounting
+      operation: subtract
+
+  panelBottom:
+    - what: outline
+      name: _raw
+      expand: 6.5
+
+  panelSide:
+    - what: outline
+      name: panelBottom
+    - what: outline
+      name: panel
+      operation: subtract
+
+  _switch_cutouts:
+    - what: rectangle
+      where: true
+      asym: left
+      size: [14, 14]
+      bound: false
+
+  screw_holes:
+    - what: outline
+      name: mounting_spacers
+    - what: outline
+      name: mounting
+      operation: subtract
+
+  switch_plate:
+    main:
+      what: outline
+      name: panel
+      fillet: 2
+    elite_c_cutout:
+      what: outline
+      name: elite_c
+      operation: subtract
+    keyholes:
+      what: outline
+      name: _switch_cutouts
+      operation: subtract
+    stabilizers_2u:
+      what: outline
+      name: 2u_stabilizer
+      operation: subtract
+    stabilizers_3u:
+      what: outline
+      name: 3u_stabilizer
+      operation: subtract
+    mounting:
+      what: outline
+      name: mounting
+      operation: subtract
+
+pcbs:
+  main:
+    outlines:
+      main:
+        outline: panel_with_mounting_holes
+    footprints:
+      mx:
+        what: mx
+        where: true
+        params:
+          hotswap: true
+          reverse: false
+          keycaps: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      elite_c:
+        what: elite_c
+        where:
+          ref: fKeys_second_f1
+          shift: [-30, 0]
+          rotate: 90
+      diode_main:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -8.5]
+
+cases:
+  switch_plate:
+    - name: switch_plate
+      extrude: 1.5
+  bottom_plate:
+    - name: panelBottom
+      extrude: 1
+    - name: screw_holes
+      extrude: 4
+    - name: spacers
+      extrude: 4
+  sidePlate:
+    - name: panelSide
+      extrude: 6.05
